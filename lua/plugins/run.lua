@@ -3,7 +3,7 @@ return {
   opts = {
     mappings = {
       n = {
-        ["<F6>"] = {
+        ["<S-CR>"] = {
           function()
             local file = vim.fn.expand "%:p"
             local ft = vim.bo.filetype
