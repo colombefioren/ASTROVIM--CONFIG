@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Treesitter
 -- --------------------
 -- Treesitter customizations are handled with AstroCore
@@ -17,7 +15,24 @@ return {
       ensure_installed = {
         "lua",
         "vim",
-        -- add more arguments for adding more treesitter parsers
+        "vimdoc",
+        "query",
+        "bash",
+        "c",
+        "cpp",
+        "python",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+        "json",
+        "yaml",
+        "markdown",
+        "markdown_inline",
+        "java",
+        "sql",
+        "nix",
       },
     },
   },
