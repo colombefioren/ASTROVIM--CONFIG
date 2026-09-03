@@ -1,7 +1,6 @@
 return {
   "AstroNvim/astrocommunity",
 
-  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.typescript" },
