@@ -1,29 +1,19 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "Mofiqul/vscode.nvim",
+    priority = 1000,
     opts = {
-      flavour = "mocha",
-      transparent_background = true,
+      style = "dark",
+      transparent = false,
+      italic_comments = true,
+      disable_nvimtree_bg = true,
+    },
+  },
 
-      integrations = {
-        blink_cmp = true,
-        gitsigns = true,
-        neotree = true,
-        telescope = true,
-        treesitter = true,
-        which_key = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          virtual_text = {
-            errors = { "italic" },
-            hints = { "italic" },
-            warnings = { "italic" },
-            information = { "italic" },
-          },
-        },
-      },
+  {
+    "AstroNvim/astroui",
+    opts = {
+      colorscheme = "vscode",
     },
   },
 }
