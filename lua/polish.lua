@@ -1,5 +1,8 @@
-if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- This will run last in the setup process.
--- This is just pure lua so anything that doesn't
--- fit in the normal config locations above can go here
+-- lua/polish.lua
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    for _, grp in ipairs { "Normal", "NormalNC", "NormalFloat", "SignColumn", "EndOfBuffer" } do
+      vim.api.nvim_set_hl(0, grp, { bg = "none" })
+    end
+  end,
+})
