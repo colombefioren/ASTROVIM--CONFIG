@@ -7,14 +7,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    if vim.bo.modified and vim.bo.buftype == "" then
-      vim.cmd("silent! write")
-    end
-  end,
-})
-
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 
