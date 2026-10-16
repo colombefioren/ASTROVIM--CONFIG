@@ -40,6 +40,59 @@ return {
         ["x"] = { '"_x', desc = "Delete char (keep clipboard)" },
         ["X"] = { "d", desc = "Cut to clipboard" },
         ["XX"] = { "dd", desc = "Cut line to clipboard" },
+
+        -- Fast motion / editing
+        ["H"] = { "^", desc = "Start of line" },
+        ["L"] = { "$", desc = "End of line" },
+        ["U"] = { "<C-r>", desc = "Redo" },
+        ["<C-z>"] = { "u", desc = "Undo" },
+        ["<C-y>"] = { "<C-r>", desc = "Redo" },
+        ["<Leader>a"] = { "ggVG", desc = "Select all" },
+        ["<Esc>"] = { "<Cmd>nohlsearch<CR><Esc>", desc = "Clear search highlight" },
+        ["<C-g>"] = {
+          function()
+            vim.ui.input({ prompt = "Go to line: " }, function(line)
+              if line and line:match "^%d+$" then vim.cmd(line) end
+            end)
+          end,
+          desc = "Go to line",
+        },
+        ["<C-/>"] = { "gcc", remap = true, desc = "Toggle comment" },
+        ["<C-_>"] = { "gcc", remap = true, desc = "Toggle comment" },
+        ["<A-J>"] = { "<Cmd>t.<CR>", desc = "Duplicate line down" },
+        ["<A-K>"] = { "<Cmd>t.-1<CR>", desc = "Duplicate line up" },
+        ["<A-Down>"] = { "<Cmd>m .+1<CR>==", desc = "Move line down" },
+        ["<A-Up>"] = { "<Cmd>m .-2<CR>==", desc = "Move line up" },
+        ["<A-j>"] = { "<Cmd>m .+1<CR>==", desc = "Move line down" },
+        ["<A-k>"] = { "<Cmd>m .-2<CR>==", desc = "Move line up" },
+
+        -- Buffers
+        ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<Leader><Leader>"] = { function() require("snacks").picker.buffers() end, desc = "Pick buffer" },
+        ["<BS>"] = { "<C-^>", desc = "Last buffer" },
+      },
+      i = {
+        -- Stay in insert mode for the common jumps
+        ["<C-c>"] = { "<Esc>", desc = "Leave insert mode" },
+        ["<C-e>"] = { "<End>", desc = "End of line" },
+        ["<C-a>"] = { "<Home>", desc = "Start of line" },
+        ["<C-f>"] = { "<Right>", desc = "Forward one char (skip closing pair)" },
+        ["<C-b>"] = { "<Left>", desc = "Back one char" },
+        ["<C-BS>"] = { "<C-w>", desc = "Delete word before cursor" },
+        ["<C-h>"] = { "<C-w>", desc = "Delete word before cursor" },
+        ["<C-Del>"] = { "<C-o>dw", desc = "Delete word after cursor" },
+        ["<C-z>"] = { "<C-o>u", desc = "Undo" },
+        ["<C-y>"] = { "<C-o><C-r>", desc = "Redo" },
+        ["<C-s>"] = { "<Esc><Cmd>w!<CR>", desc = "Save and leave insert mode" },
+        ["<C-/>"] = { "<C-o>gcc", remap = true, desc = "Toggle comment" },
+        ["<C-_>"] = { "<C-o>gcc", remap = true, desc = "Toggle comment" },
+        ["<A-J>"] = { "<Cmd>t.<CR>", desc = "Duplicate line down" },
+        ["<A-K>"] = { "<Cmd>t.-1<CR>", desc = "Duplicate line up" },
+        ["<A-Down>"] = { "<Cmd>m .+1<CR><C-o>==", desc = "Move line down" },
+        ["<A-Up>"] = { "<Cmd>m .-2<CR><C-o>==", desc = "Move line up" },
+        ["<A-j>"] = { "<Cmd>m .+1<CR><C-o>==", desc = "Move line down" },
+        ["<A-k>"] = { "<Cmd>m .-2<CR><C-o>==", desc = "Move line up" },
       },
       x = {
         ["d"] = { '"_d', desc = "Delete (keep clipboard)" },
@@ -48,6 +101,18 @@ return {
         ["x"] = { '"_x', desc = "Delete (keep clipboard)" },
         ["X"] = { "d", desc = "Cut to clipboard" },
         ["p"] = { "P", desc = "Paste over selection (keep clipboard)" },
+        ["H"] = { "^", desc = "Start of line" },
+        ["L"] = { "$", desc = "End of line" },
+        ["<C-/>"] = { "gc", remap = true, desc = "Toggle comment" },
+        ["<C-_>"] = { "gc", remap = true, desc = "Toggle comment" },
+        ["<A-Down>"] = { ":m '>+1<CR>gv=gv", desc = "Move selection down" },
+        ["<A-Up>"] = { ":m '<-2<CR>gv=gv", desc = "Move selection up" },
+        ["<A-j>"] = { ":m '>+1<CR>gv=gv", desc = "Move selection down" },
+        ["<A-k>"] = { ":m '<-2<CR>gv=gv", desc = "Move selection up" },
+      },
+      o = {
+        ["H"] = { "^", desc = "Start of line" },
+        ["L"] = { "$", desc = "End of line" },
       },
     },
     autocmds = {
