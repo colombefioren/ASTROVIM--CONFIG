@@ -28,6 +28,28 @@ return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
+    mappings = {
+      -- Delete never touches the clipboard. `y` copies, `X` cuts, `d`/`c`/`x` just remove.
+      n = {
+        ["d"] = { '"_d', desc = "Delete (keep clipboard)" },
+        ["dd"] = { '"_dd', desc = "Delete line (keep clipboard)" },
+        ["D"] = { '"_D', desc = "Delete to end of line (keep clipboard)" },
+        ["c"] = { '"_c', desc = "Change (keep clipboard)" },
+        ["cc"] = { '"_cc', desc = "Change line (keep clipboard)" },
+        ["C"] = { '"_C', desc = "Change to end of line (keep clipboard)" },
+        ["x"] = { '"_x', desc = "Delete char (keep clipboard)" },
+        ["X"] = { "d", desc = "Cut to clipboard" },
+        ["XX"] = { "dd", desc = "Cut line to clipboard" },
+      },
+      x = {
+        ["d"] = { '"_d', desc = "Delete (keep clipboard)" },
+        ["D"] = { '"_D', desc = "Delete lines (keep clipboard)" },
+        ["c"] = { '"_c', desc = "Change (keep clipboard)" },
+        ["x"] = { '"_x', desc = "Delete (keep clipboard)" },
+        ["X"] = { "d", desc = "Cut to clipboard" },
+        ["p"] = { "P", desc = "Paste over selection (keep clipboard)" },
+      },
+    },
     autocmds = {
       cpp_indent = {
         {
