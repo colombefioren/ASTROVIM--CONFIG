@@ -5,7 +5,7 @@ return {
   opts = {
     features = {
       codelens = true,
-      inlay_hints = true,
+      inlay_hints = false,
       semantic_tokens = true,
     },
 
@@ -55,8 +55,5 @@ return {
       },
     },
 
-    on_attach = function(client, bufnr)
-      -- Keep LSP semantic highlighting enabled.
-    end,
   },
 }
