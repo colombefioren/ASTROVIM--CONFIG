@@ -9,7 +9,7 @@ return {
   opts = {
     check_ts = false,
     enable_check_bracket_line = false,
-    ignored_next_char = "[%w]",
+    ignored_next_char = "", -- pair even when the next character is a word
     fast_wrap = { map = "<M-e>" },
   },
 }
